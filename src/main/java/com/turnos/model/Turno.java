@@ -1,11 +1,10 @@
 package com.turnos.model;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
+
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -36,4 +35,8 @@ public class Turno {
     @ManyToOne
     @JoinColumn(name = "profesional_id")
     private Profesional profesional;
+
+    @ManyToOne
+    @JoinColumn(name = "consultorio_id")
+    private Consultorio consultorio;
 }
