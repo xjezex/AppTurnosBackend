@@ -28,6 +28,8 @@ public class Consultorio {
     private List<Turno> turnos;
 
     // Disponibilidad horaria semanal (embebida)
+    @ElementCollection
+    @CollectionTable(name = "consultorio_disponibilidad", joinColumns = @JoinColumn(name = "consultorio_id"))
     private List<DisponibilidadHoraria> disponibilidadHoraria;
 
 }
