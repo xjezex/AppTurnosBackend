@@ -54,7 +54,7 @@
 
         @DeleteMapping("/{id}")
         @Operation(summary = "Eliminar un turno", description = "Elimina un turno por su ID")
-        public void eliminarTurno(@PathVariable int id) {
+        public void eliminarTurno(@PathVariable Long id) {
             turnoService.eliminarTurno(id);
         }
 

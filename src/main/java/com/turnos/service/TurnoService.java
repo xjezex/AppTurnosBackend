@@ -54,7 +54,7 @@ public class TurnoService {
             Turno turno = turnoExistente.get();
             // Actualiza los campos necesarios
             turno.setFecha(nuevoTurno.getFecha());
-            turno.setPaciente(nuevoTurno.getPaciente());
+            //turno.setPaciente(nuevoTurno.getPaciente());
             // Otras actualizaciones según sea necesario
             return turnoRepository.save(turno);
         } else {
@@ -62,7 +62,7 @@ public class TurnoService {
         }
     }
 
-    public void eliminarTurno(int id) {
+    public void eliminarTurno(Long id) {
         Optional<Turno> turnoOptional = turnoRepository.findById((long) id);
         if (turnoOptional.isPresent()) {
             turnoRepository.deleteById((long) id);
