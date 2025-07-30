@@ -33,6 +33,6 @@ public class TurnoDTO {
     @NotNull(message = "El ID del profesional no puede ser nulo")
     private Long profesionalId;
 
-   @NotNull(message = "El ID del consultorio no puede ser nulo")
+   //@NotNull(message = "El ID del consultorio no puede ser nulo")
     private Long consultorioId;
 }
