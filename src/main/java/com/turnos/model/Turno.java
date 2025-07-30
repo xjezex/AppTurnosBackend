@@ -18,7 +18,7 @@ import java.time.LocalTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(exclude = {"paciente", "profesional"}) //  Evita imprimir estas relaciones
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+//@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Turno {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
