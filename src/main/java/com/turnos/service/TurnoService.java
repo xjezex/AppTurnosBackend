@@ -48,7 +48,7 @@ public class TurnoService {
     }
 
 
-    public Turno modificarTurno(Long id, Turno nuevoTurno) {
+    public Turno modificarTurno(Long id, TurnoDTO nuevoTurno) {
         Optional<Turno> turnoExistente = turnoRepository.findById(id);
         if (turnoExistente.isPresent()) {
             Turno turno = turnoExistente.get();
