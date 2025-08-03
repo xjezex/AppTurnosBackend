@@ -35,7 +35,7 @@
 
         @PutMapping("/{id}")
         @Operation(summary = "Modificar un turno", description = "Modifica un turno por su ID")
-        public ResponseEntity<Turno> modificarTurno(@PathVariable Long id, @RequestBody TurnoDTO turnoDTO) {
+        public ResponseEntity<TurnoDTO> modificarTurno(@PathVariable Long id, @RequestBody TurnoDTO turnoDTO) {
             // Verificamos que el ID en la URL no sea nulo
             if (id == null) {
                 return ResponseEntity.badRequest().build();
@@ -44,7 +44,7 @@
             // Aseguramos que el ID del nuevoTurno es el mismo que el de la URL
             turnoDTO.setId(id);
 
-            Turno turnoModificado = turnoService.modificarTurno(id, turnoDTO);
+            TurnoDTO turnoModificado = turnoService.modificarTurno(id, turnoDTO);
             if (turnoModificado == null) {
                 return ResponseEntity.notFound().build(); // En caso de que no se encuentre el turno
             }

@@ -48,19 +48,29 @@ public class TurnoService {
     }
 
 
-    public Turno modificarTurno(Long id, TurnoDTO nuevoTurno) {
+    public TurnoDTO modificarTurno(Long id, TurnoDTO nuevoTurno) {
+
         Optional<Turno> turnoExistente = turnoRepository.findById(id);
         if (turnoExistente.isPresent()) {
             Turno turno = turnoExistente.get();
-            // Actualiza los campos necesarios
+            // Actualizar los campos
             turno.setFecha(nuevoTurno.getFecha());
-            //turno.setPaciente(nuevoTurno.getPaciente());
-            // Otras actualizaciones según sea necesario
-            return turnoRepository.save(turno);
+            turno.setHora(nuevoTurno.getHora());
+            turno.setDuracion(nuevoTurno.getDuracion());
+            // Asociar paciente y profesional
+            Paciente paciente = pacienteRepository.findById(nuevoTurno.getPacienteId())
+                    .orElseThrow(() -> new RuntimeException("Paciente no encontrado con id: " + nuevoTurno.getPacienteId()));
+            Profesional profesional = profesionalRepository.findById(nuevoTurno.getProfesionalId())
+                    .orElseThrow(() -> new RuntimeException("Profesional no encontrado con id: " + nuevoTurno.getProfesionalId()));
+            turno = turnoMapper.toEntity(nuevoTurno);
+            turno.setPaciente(paciente);
+            turno.setProfesional(profesional);
+            return turnoMapper.toDTO(turnoRepository.save(turno));
         } else {
-            return null; // Si no se encuentra el turno
+            throw new RuntimeException("Turno no encontrado con id: " + id);
         }
     }
+
 
     public void eliminarTurno(Long id) {
         Optional<Turno> turnoOptional = turnoRepository.findById((long) id);
