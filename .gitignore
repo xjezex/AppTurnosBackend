@@ -1,0 +1,41 @@
+# === Java / Spring Boot ===
+target/
+*.class
+*.jar
+*.war
+*.ear
+
+# Logs
+*.log
+logs/
+!src/main/resources/*.log  # (quita el ! si no querés ningún log)
+
+# Archivos temporales del sistema
+.DS_Store
+Thumbs.db
+
+# === IntelliJ IDEA ===
+.idea/
+*.iml
+*.iws
+out/
+
+# === Maven ===
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# === Configuración de OS ===
+ehthumbs.db
+Icon?
+desktop.ini
+
+# === Archivos temporales de compilación ===
+*.swp
+*.swo
