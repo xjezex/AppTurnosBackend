@@ -9,8 +9,8 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.turnos</groupId>
-	<artifactId>thm</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>AppTurnos</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
 	<name>thm</name>
 	<description>Gestion de turnos</description>
 	<url/>
