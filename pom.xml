@@ -11,7 +11,7 @@
 	<groupId>com.turnos</groupId>
 	<artifactId>AppTurnos</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
-	<name>thm</name>
+	<name>AppTurnos</name>
 	<description>Gestion de turnos</description>
 	<url/>
 	<licenses>

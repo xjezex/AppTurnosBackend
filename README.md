@@ -17,9 +17,7 @@ Desarrollado con **Java 17** y **Spring Boot 3.3.0**, sigue una arquitectura en 
 5. [Endpoints principales / API](#endpoints-principales--api)
 6. [Testing](#testing)
 7. [Estado actual / Roadmap](#estado-actual--roadmap)
-8. [Mapping al perfil solicitado por reclutador](#mapping-al-perfil-solicitado-por-reclutador)
-9. [Notas operativas / Consideraciones](#notas-operativas--consideraciones)
-10. [Contacto y licencia](#contacto-y-licencia)
+8. [Contacto y licencia](#contacto-y-licencia)
 
 ---
 
@@ -202,7 +200,16 @@ El proyecto ya incluye dependencias para JUnit 5 y Mockito. Para ejecutar tests:
 ```bash
 mvn test
 ```
+### Cobertura con JaCoCo
+Para generar el reporte de cobertura de código:
 
+```bash
+mvn clean verify
+```
+El reporte HTML se encuentra en:
+```
+target/site/jacoco/index.html
+```
 ---
 
 ## Estado actual / Roadmap
