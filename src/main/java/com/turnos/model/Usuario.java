@@ -34,5 +34,5 @@ public class Usuario {
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "usuarios_roles", joinColumns = @JoinColumn(name = "usuario_id"))
     @Column(name = "rol")
-    private Set<String> roles = new HashSet<>(); // ejemplo: ROLE_USER, ROLE_ADMIN
+    private Set<String> role = new HashSet<>(); // ejemplo: ROLE_USER, ROLE_ADMIN
 }
