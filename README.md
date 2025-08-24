@@ -1,4 +1,3 @@
-
 # AppTurnos — Backend (Java + Spring Boot)
 
 **Resumen breve**
@@ -15,9 +14,10 @@ Desarrollado con **Java 17** y **Spring Boot 3.3.0**, sigue una arquitectura en 
    - [Con Docker Compose (recomendado)](#con-docker-compose-recomendado)
    - [Local con Maven / IntelliJ](#local-con-maven--intellij)
 5. [Endpoints principales / API](#endpoints-principales--api)
-6. [Testing](#testing)
-7. [Estado actual / Roadmap](#estado-actual--roadmap)
-8. [Contacto y licencia](#contacto-y-licencia)
+6. [Seguridad](#seguridad-)
+7. [Testing](#testing)
+8. [Estado actual / Roadmap](#estado-actual--roadmap)
+9. [Contacto y licencia](#contacto-y-licencia)
 
 ---
 
@@ -50,6 +50,7 @@ src/main/java/com/turnos
 ├── repository         # Repositorios Spring Data (TurnoRepository, PacienteRepository, ProfesionalRepository)
 ├── service            # Lógica de negocio (TurnoService, PacienteService, ProfesionalService)
 ├── config             # Configuración (SwaggerConfig, etc.)
+├── security           # Seguridad (JWT, filtros, configuración de Spring Security)
 └── model              # Modelos auxiliares (DisponibilidadHoraria, etc.)
 ```
 
@@ -194,6 +195,44 @@ Content-Type: application/json
 
 ---
 
+## Seguridad 🔐
+La aplicación incluye un **módulo de autenticación en desarrollo**, basado en **Spring Security** y **JWT (JSON Web Token)**, con el objetivo de proteger los endpoints sensibles y gestionar el acceso de usuarios.
+
+### Estado actual
+- Configuración básica de **Spring Security** integrada al proyecto.
+- Generación y validación de **JWT** para login y acceso a rutas protegidas.
+- Middleware/Filtros para validar tokens en cada request.
+
+### Roadmap próximo
+- Definir roles y autorizaciones (ej. `ROLE_USER`, `ROLE_ADMIN`).
+- Proteger endpoints críticos de la API (ej: creación/eliminación de recursos).
+- Implementar endpoints de autenticación:
+  - `POST /auth/login` → genera JWT válido.
+  - `POST /auth/register` → registro de usuarios (opcional).
+  - `GET /auth/me` → devuelve información del usuario autenticado.
+
+**Ejemplo de login (en desarrollo):**
+
+```http
+POST /auth/login
+Content-Type: application/json
+
+{
+  "username": "usuario",
+  "password": "contraseña"
+}
+```
+
+**Respuesta esperada:**
+
+```json
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6..."
+}
+```
+
+---
+
 ## Testing
 El proyecto ya incluye dependencias para JUnit 5 y Mockito. Para ejecutar tests:
 
@@ -222,7 +261,7 @@ target/site/jacoco/index.html
 - Estructura de proyecto con capas bien separadas.
 
 **En desarrollo**
-- Autenticación/Autorización (Spring Security + JWT) — planificado.
+- Autenticación/Autorización (Spring Security + JWT) — en progreso.
 - Cobertura de tests ampliada (muestras unitarias y de integración).
 - Scripts de datos iniciales (seed) para facilitar evaluación.
 - Analisis general en busca de refactor code.
